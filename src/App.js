@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 function App() {
 
   const clientId="9116acfff80e4d2a972197ba29c0e8a9"
-  const redirectUri = 'http://localhost:3000';
-  //const redirectUri = 'https://coruscating-cendol-d05bc4.netlify.app/'
+  //const redirectUri = 'http://localhost:3000';
+  const redirectUri = 'https://resonant-cucurucho-7108f3.netlify.app'
   const authEndpoint = 'https://accounts.spotify.com/authorize';
   const responseType = 'token';
   const scopes = 'playlist-read-private playlist-modify-private playlist-modify-public';
@@ -72,10 +72,12 @@ const deletePlaylistOnSpotify = (id,accessToken) => {
         }
     })
   }
+  
   const removePlaylist = (indexToRemove) => {
-    setPlaylists(playlists.filter((_, index) => index !== indexToRemove));
-    // remove the playlist from spotify, il faut récupérer l'id de la playlist dans l'objet 
-    deletePlaylistOnSpotify(playlists[indexToRemove].id,token);
+    if (window.confirm("Êtes-vous sûr de vouloir supprimer cette playlist ?")) {
+      setPlaylists(playlists.filter((_, index) => index !== indexToRemove));
+      deletePlaylistOnSpotify(playlists[indexToRemove].id, token);
+    }
   };
 
 
