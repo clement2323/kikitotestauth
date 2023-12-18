@@ -115,8 +115,8 @@ useEffect(() => {
 <div className="App" key={key}>
     {!token ? (
       <div>
-        <h1>Bienvenue sur notre application</h1>
-        <a href={getAuthUrl()}>Se connecter à Spotify</a>
+        <h1>J4ai envie de te faire l'amour</h1>
+        <a href={getAuthUrl()}>Connecte toi pleeeease</a>
       </div>
     ) : (
       // Le contenu de votre application va ici
