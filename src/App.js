@@ -141,7 +141,7 @@ useEffect(() => {
         <h1 style={{ color: 'red', fontStyle: 'italic' }}>
              J'ai Encore envie...
              </h1>
-        <button onClick={refreshPlaylists}>Rafraîchir les playlists</button>
+        <button onClick={refreshPlaylists}>Rafraîchir la liste des playlists</button>
         <ul>
           {playlists.map((playlist, index) => (
             <li key={index}>
