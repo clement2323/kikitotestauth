@@ -37,7 +37,16 @@ function App() {
     getUserPlaylists(token).then(playlists => setPlaylists(playlists));
   };
   
+  useEffect(() => {
+    // Rafraîchir les playlists immédiatement au chargement de la page
+    refreshPlaylists();
   
+    // Rafraîchir les playlists toutes les 30 secondes
+    const intervalId = setInterval(refreshPlaylists, 30000);
+  
+    // Nettoyer l'intervalle lors du démontage du composant
+    return () => clearInterval(intervalId);
+  }, []);
 
   const getUserPlaylists = (token) => {
     const accessToken = token;
