@@ -33,20 +33,20 @@ function App() {
           return url;
           }
 
-  const refreshPlaylists = useCallback(() => {
+  const refreshPlaylists = () => {
     getUserPlaylists(token).then(playlists => setPlaylists(playlists));
-  }, [token]);
+  };
   
-  useEffect(() => {
-    // Rafraîchir les playlists immédiatement au chargement de la page
-    refreshPlaylists();
+  // useEffect(() => {
+  //   // Rafraîchir les playlists immédiatement au chargement de la page
+  //   refreshPlaylists();
   
-    // Rafraîchir les playlists toutes les 30 secondes
-    const intervalId = setInterval(refreshPlaylists, 30000);
+  //   // Rafraîchir les playlists toutes les 30 secondes
+  //   const intervalId = setInterval(refreshPlaylists, 30000);
   
-    // Nettoyer l'intervalle lors du démontage du composant
-    return () => clearInterval(intervalId);
-  }, [refreshPlaylists]);
+  //   // Nettoyer l'intervalle lors du démontage du composant
+  //   return () => clearInterval(intervalId);
+  // }, [refreshPlaylists]);
 
   const getUserPlaylists = (token) => {
     const accessToken = token;
