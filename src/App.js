@@ -32,10 +32,10 @@ function App() {
           const url = `${authEndpoint}?client_id=${clientId}&scope=${scopes}&redirect_uri=${redirectUri}&response_type=${responseType}&show_dialog=true`;
           return url;
           }
-  
-  const refreshPlaylists = () => {
+
+  const refreshPlaylists = useCallback(() => {
     getUserPlaylists(token).then(playlists => setPlaylists(playlists));
-  };
+  }, [token]);
   
   useEffect(() => {
     // Rafraîchir les playlists immédiatement au chargement de la page
