@@ -111,11 +111,14 @@ useEffect(() => {
 
 
    
-    return(      
-<div className="App" key={key}>
+return (
+  <div className="App" key={key}>
     {!token ? (
       <div>
-        <h1>J4ai envie de te faire l'amour</h1>
+        <h1 style={{ color: 'red', fontStyle: 'italic' }}>
+          J'ai envie de te faire l'amour
+          <span style={{ color: 'pink' }}> &lt;3</span>
+        </h1>
         <a href={getAuthUrl()}>Connecte toi pleeeease</a>
       </div>
     ) : (
@@ -125,15 +128,14 @@ useEffect(() => {
           {playlists.map((playlist, index) => (
             <li key={index}>
               {playlist.name}
-              <button onClick={() => removePlaylist(index)}>X</button>
+              {/* ... */}
             </li>
           ))}
         </ul>
       </div>
     )}
-  </div>)
-}
-;
+  </div>
+);
 /*<PlaylistUser playlists={playlists} />*/
 
 // <SearchBar onSearch={search} /> 
