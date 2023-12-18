@@ -111,8 +111,8 @@ useEffect(() => {
 
 
    
-return (
-  <div className="App" key={key}>
+    return(      
+<div className="App" key={key}>
     {!token ? (
       <div>
         <h1 style={{ color: 'red', fontStyle: 'italic' }}>
@@ -124,18 +124,22 @@ return (
     ) : (
       // Le contenu de votre application va ici
       <div>
+        <h1 style={{ color: 'red', fontStyle: 'italic' }}>
+             J'ai Encore envie...
+             </h1>
         <ul>
           {playlists.map((playlist, index) => (
             <li key={index}>
               {playlist.name}
-              {/* ... */}
+              <button onClick={() => removePlaylist(index)}>X</button>
             </li>
           ))}
         </ul>
       </div>
     )}
-  </div>
-);
+  </div>)
+}
+;
 /*<PlaylistUser playlists={playlists} />*/
 
 // <SearchBar onSearch={search} /> 
