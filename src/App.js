@@ -32,7 +32,12 @@ function App() {
           const url = `${authEndpoint}?client_id=${clientId}&scope=${scopes}&redirect_uri=${redirectUri}&response_type=${responseType}&show_dialog=true`;
           return url;
           }
-
+  
+  const refreshPlaylists = () => {
+    getUserPlaylists(token).then(playlists => setPlaylists(playlists));
+  };
+  
+  
 
   const getUserPlaylists = (token) => {
     const accessToken = token;
@@ -127,6 +132,7 @@ useEffect(() => {
         <h1 style={{ color: 'red', fontStyle: 'italic' }}>
              J'ai Encore envie...
              </h1>
+        <button onClick={refreshPlaylists}>Rafraîchir les playlists</button>
         <ul>
           {playlists.map((playlist, index) => (
             <li key={index}>
