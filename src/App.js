@@ -46,7 +46,7 @@ function App() {
   
     // Nettoyer l'intervalle lors du démontage du composant
     return () => clearInterval(intervalId);
-  }, []);
+  }, [refreshPlaylists]);
 
   const getUserPlaylists = (token) => {
     const accessToken = token;
